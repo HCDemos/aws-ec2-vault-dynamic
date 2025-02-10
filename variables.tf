@@ -19,11 +19,8 @@ variable "prefix" {
 
 variable "region"{
   description = "The region Terraform deploys your instance"
+  default = "us-east-1"
 }
-
-#variable "ami_id_value" {
- # description = "Value to use for the ami_id"
-#}
 
 variable "owner" {
   default = "dpeacock"
@@ -47,58 +44,10 @@ variable "ttl" {
 
 variable "Department" {
   description = "the department the resource is for"
+  default = "Engineering"
     }
 
 variable "Billable" {
   description = "to bill or not to bill"
+  default = true
   }
-
-variable "login_username" {
-  description = "used for Vault"
-  default = "none"
-}
-
-variable "az-vm-adminpassword" {
-  description = "used for az VMs"
-  default = "none"
-}
-
-variable "azure_subscription_id" {
-  description = "used for az VMs"
-  default = "none"
-}
-
-variable "subscription_id" {
-  description = "used for az VMs"
-  default = "none"
-}
-
-variable "az-vm-adminuser" {
-  description = "used for az VMs"
-  default = "none"
-}
-
-variable "tenant_id" {
-  description = "used for az VMs"
-  default = "none"
-}
-
-variable "azurerm_resource_group_name" {
-  description = "used for az VMs"
-  default = "none"
-}
-
-variable "login_password" {
-  description = "used for az VMs"
-  default = "none"
-}
-
-variable "vault_address" {
-  description = "vault"
-  default = "none"
-}
-
-variable "vault_namespace" {
-  description = "vault"
-  default = "none"
-}
