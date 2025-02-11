@@ -13,9 +13,9 @@ provider "vault" {
   address          = "https://dp-vault-cluster.vault.1e53275e-94b7-4575-b679-735c6df54970.aws.hashicorp.cloud:8200/"
   namespace        = "/admin/tfemanual"
 
-//  auth_login_token_file {
-//    filename = var.tfc_vault_dynamic_credentials.default.token_filename
-//  }
+  auth_login_token_file {
+    filename = var.tfc_vault_dynamic_credentials.default.token_filename
+  }
 }
 
 # ask Vault to get credentials to use for deployment to AWS
