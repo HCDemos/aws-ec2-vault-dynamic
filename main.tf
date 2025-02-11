@@ -1,7 +1,35 @@
-provider "aws" {
-  region = "us-east-2"
+//provider "aws" {
+//  region = "us-east-1"
+//}
+
+//provider "vault" {
+//  # HCP Vault Configuration options
+//  address = var.vault_address
+//  namespace = var.vault_namespace
+//}
+provider "vault" {
+  // skip_child_token must be explicitly set to true as HCP Terraform manages the token lifecycle
+  skip_child_token = true
+  address          = "https://dp-vault-cluster.vault.1e53275e-94b7-4575-b679-735c6df54970.aws.hashicorp.cloud:8200/"
+  namespace        = "/admin/tfemanual"
+
+//  auth_login_token_file {
+//    filename = var.tfc_vault_dynamic_credentials.default.token_filename
+//  }
 }
 
+# ask Vault to get credentials to use for deployment to AWS
+data "vault_aws_access_credentials" "aws_creds" {
+  backend = "aws"
+  role     = "my-role"
+}
+
+# configure provider to use Vault's dynamically generated credentials for AWS
+provider "aws" {
+  region = var.aws_region
+  access_key = sensitive("${data.vault_aws_access_credentials.aws_creds.access_key}")
+  secret_key = sensitive("${data.vault_aws_access_credentials.aws_creds.secret_key}")
+}
 data "aws_ami" "ubuntu" {
   most_recent = true
 
