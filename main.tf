@@ -1,3 +1,12 @@
+terraform {
+  required_providers {
+    vault = {
+      source = "hashicorp/vault"
+      version = "4.6.0"
+    }
+  }
+}
+
 provider "vault" {
   // skip_child_token must be explicitly set to true as HCP Terraform manages the token lifecycle
   skip_child_token = true
