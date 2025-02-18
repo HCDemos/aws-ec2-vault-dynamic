@@ -9,7 +9,7 @@ terraform {
 
 provider "vault" {
   // skip_child_token must be explicitly set to true as HCP Terraform manages the token lifecycle
-  //skip_child_token = true
+  skip_child_token = true
   address          = var.tfc_vault_address
   namespace        = var.tfc_vault_namespace
 
