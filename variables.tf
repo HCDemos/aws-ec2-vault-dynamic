@@ -51,3 +51,13 @@ variable "Billable" {
   description = "to bill or not to bill"
   default = true
   }
+
+variable "tfc_vault_namespace" {
+  description = "to bill or not to bill"
+}
+
+variable "tfc_vault_addr" {
+  description = "to bill or not to bill"
+}
+
+
