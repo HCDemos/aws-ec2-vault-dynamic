@@ -24,7 +24,7 @@ data "vault_aws_access_credentials" "aws_creds" {
 
 # configure provider to use Vault's dynamically generated credentials for AWS
 provider "aws" {
-  region = var.aws_region
+  region = var.region
   access_key = sensitive("${data.vault_aws_access_credentials.aws_creds.access_key}")
   secret_key = sensitive("${data.vault_aws_access_credentials.aws_creds.secret_key}")
 }
