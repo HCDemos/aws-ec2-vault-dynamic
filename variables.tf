@@ -52,12 +52,14 @@ variable "Billable" {
   default = true
   }
 
-variable "tfc_vault_namespace" {
-  description = "to bill or not to bill"
+variable "TFC_VAULT_NAMESPACE" {
+  description = "vault namespace to use"
+  default = "/admin/tfemanual"
 }
 
-variable "tfc_vault_addr" {
-  description = "to bill or not to bill"
+variable "TFC_VAULT_ADDR" {
+  description = "vault address"
+  default = "https://dp-vault-cluster.vault.1e53275e-94b7-4575-b679-735c6df54970.aws.hashicorp.cloud:8200"
 }
 
 
