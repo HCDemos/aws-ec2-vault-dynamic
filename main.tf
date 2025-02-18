@@ -10,8 +10,8 @@ terraform {
 provider "vault" {
   // skip_child_token must be explicitly set to true as HCP Terraform manages the token lifecycle
   //skip_child_token = true
-  address          = "https://dp-vault-cluster.vault.1e53275e-94b7-4575-b679-735c6df54970.aws.hashicorp.cloud:8200/"
-  namespace        = "/admin/tfemanual"
+  address          = var.tfc_vault_address
+  namespace        = var.tfc_vault_namespace
 
 //  auth_login_token_file {
 //    filename = var.tfc_vault_dynamic_credentials.default.token_filename
