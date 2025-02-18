@@ -22,6 +22,7 @@ provider "vault" {
 data "vault_aws_access_credentials" "aws_creds" {
   backend = "aws"
   role     = "my-role"
+  type     = "iam_user"
 }
 
 # configure provider to use Vault's dynamically generated credentials for AWS
