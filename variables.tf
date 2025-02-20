@@ -22,6 +22,11 @@ variable "region"{
   default = "us-east-1"
 }
 
+variable "aws_region" {
+  description = "Region for AWS secrets engine"
+  default = "us-east-1"
+}
+
 variable "owner" {
   default = "dpeacock"
   description = "person from HC that deployed the resource"
