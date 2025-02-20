@@ -27,7 +27,6 @@ provider "aws" {
   region = var.region
   access_key = sensitive("${data.vault_aws_access_credentials.aws_creds.access_key}")
   secret_key = sensitive("${data.vault_aws_access_credentials.aws_creds.secret_key}")
-  session_token= sensitive("${data.vault_aws_access_credentials.aws_creds.session_token}")
 }
 
 data "aws_ami" "ubuntu" {
