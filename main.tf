@@ -19,7 +19,7 @@ provider "vault" {
 # ask Vault to get credentials to use for deployment to AWS
 data "vault_aws_access_credentials" "aws_creds" {
   backend = "aws"
-  role     = "my-role"
+  role     = "temp-user"
 }
 
 # configure provider to use Vault's dynamically generated credentials for AWS
